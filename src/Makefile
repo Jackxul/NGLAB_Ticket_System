@@ -15,4 +15,10 @@ $(exe): $(OBJ)
 	@echo "Makefile: Done."
 $(B_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-
+.PHONY: clean
+clean:
+	@echo "Makefile_sub : Cleaning up..."
+	rm -rf ./../build
+	rm -rf ./../exe
+	@echo "Makefile: Done."
+	@tree ./../
