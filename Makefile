@@ -10,7 +10,7 @@ sub:
 	@echo "Call Sub Makefile : Done."
 .PHONY: clean
 clean:
-	@echo "Makefile: Cleaning up..."
+	@echo "Makefile_out : Cleaning up..."
 	@rm -rf build
 	@rm -rf exe 
 	@echo "Makefile Clean : Done."
