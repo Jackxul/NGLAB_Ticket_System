@@ -5,6 +5,7 @@ CC:=gcc
 CFLAGS:=-Wall -c
 B_DIR := ../build
 E_DIR := ../exe
+I_DIR := ../include
 SRC=${wildcard *.c}
 OBJ = $(patsubst %.c,$(B_DIR)/%.o,$(SRC))
 
@@ -14,7 +15,8 @@ $(exe): $(OBJ)
 	$(CC) $(OBJ) -o ./../exe/$@
 	@echo "Makefile: Done."
 $(B_DIR)/%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -I $(I_DIR) -c $< -o $@
+	@echo  "Building objective file $@ from $< ..."
 .PHONY: clean
 clean:
 	@echo "Makefile_sub : Cleaning up..."

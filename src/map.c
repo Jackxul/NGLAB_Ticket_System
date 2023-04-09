@@ -1,7 +1,18 @@
+/* map.c */
+#include "map.h"
 //Train Station Map File in C
-#include <stdio.h>
-#include <stdlib.h>
-
+/* charge fee table
+ * <5   	20$
+ * 5~8 		25$
+ * 8~11 	30$
+ * 11~14 	35$
+ * 14~17 	40$
+ * 17~20 	45$
+ * 20~23 	50$
+ * 23~26 	55$
+ * 26~31 	60$
+ * >31 		65$
+ */
 void map(){
 
 
