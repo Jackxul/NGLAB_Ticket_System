@@ -12,13 +12,24 @@ typedef struct{
     	int accountNumber;
     	char name[30];
     	int wallet;
+	char station_in_color;
+	int station_in_number;
+	char station_out_color;
+	int station_out_number;
 } Acc; 
 void set_account_number(Acc *account,int value);
 void set_account_name(Acc *account,char *name);
 void set_account_wallet(Acc *account,int value);
+void set_account_station_in_color(Acc *account,char color);
+void set_account_station_in_no(Acc *account,int num);
+void set_account_station_out_color(Acc *account,char color);
+void set_account_station_out_no(Acc *account,int num);
 int get_account_number(Acc *account);
 char *get_account_name(Acc *account);
 int get_account_wallet(Acc *account);
-
+char get_account_station_in_color(Acc *account);
+int get_account_station_in_no(Acc *account);
+char get_account_station_out_color(Acc *account);
+int get_account_station_out_no(Acc *account);
 
 #endif /* ACCOUNT_H */
