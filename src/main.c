@@ -3,16 +3,16 @@
 #include <stdlib.h>
 #include "account.h"
 
-struct account *account1;
 int main(){
-	
-	account1 = malloc(sizeof(struct account));
-	account1->accountNumber = 1;
-	account1->wallet = 100;
-	printf("Account Number: %d \n", account1->accountNumber);
-	printf("Wallet: %d \n", account1->wallet);
-
-
+	Acc acorigin;	
+	//set the account
+	set_account_number(&acorigin, 0);
+	set_account_name(&acorigin, "Jack");
+	set_account_wallet(&acorigin, 99999);
+	//print the account
+	printf("Account Number: %d\n", get_account_number(&acorigin));
+	printf("Account Name: %s\n", get_account_name(&acorigin));
+	printf("Account Wallet: %d\n", get_account_wallet(&acorigin));
 
 	return 0;
 }
