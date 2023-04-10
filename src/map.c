@@ -13,6 +13,12 @@
  * 26~31 	60$
  * >31 		65$
  */
+
+float  stat_cal(char in_stat , int in_no , char out_stat , int out_no){
+
+
+	return 0;
+}
 void map(){
 
 

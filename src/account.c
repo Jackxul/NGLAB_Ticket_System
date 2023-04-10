@@ -2,7 +2,28 @@
 //  Created by  on 2012-11-13.
 //private variables
 #include "account.h"
-//set functions
+/*	Account init function	*/
+Acc *account_init(){
+	Acc *account = malloc(sizeof(Acc));
+	if(account){
+		account->accountNumber = -1;
+		strcpy(account->name, "NULL");
+		account->wallet = -1;
+		account->station_in_color = 'N';
+		account->station_in_number = -1;
+		account->station_out_color = 'N';
+		account->station_out_number = -1;
+		pthread_mutex_init(&account->lock, NULL);//IMPORTANT!!!
+
+		printf("Account init success!\n");
+	}else{
+		printf("Error: Account init failed!\n");
+		exit(1);
+	}	
+	return account;
+}
+
+/*	set functions	*/
 void set_account_number(Acc *account,int value){
 	pthread_mutex_lock(&account->lock);
 	account->accountNumber = value;
@@ -37,9 +58,8 @@ void set_account_station_out_no(Acc *account,int num){
 	pthread_mutex_lock(&account->lock);
 	account->station_out_number = num;
 	pthread_mutex_unlock(&account->lock);
-
-
-}//get functions
+}
+/*	get functions	*/
 int get_account_number(Acc *account){
 	int value;
 	pthread_mutex_lock(&account->lock);
