@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "account.h"
+#include "station.h"
 #include "map.h"
 int main(){
 	Acc *acorigin = account_init();	
@@ -26,5 +27,21 @@ int main(){
 
 	stat_cal(get_account_station_in_color(acorigin), get_account_station_in_no(acorigin), get_account_station_out_color(acorigin), get_account_station_out_no(acorigin));
 
+	int *p = &acorigin->wallet;
+	printf("Wallet for now : %d\n", *p);
+
+	printf("Enter Station ...\n");
+
+	check_remain(acorigin);
+
+	printf("Lock Stat : %d\n", acorigin->lock);
+
+	printf("Exit Station ...\n");
+
+	set_account_wallet(acorigin, -1);
+
+	check_remain(acorigin);
+
+	printf("Lock Stat : %d\n", acorigin->lock);
 	return 0;
 }

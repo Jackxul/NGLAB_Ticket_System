@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct{
-	pthread_mutex_t lock;
+	pthread_mutex_t mutex;
     	int accountNumber;
     	char name[30];
     	int wallet;
@@ -16,6 +16,7 @@ typedef struct{
 	int station_in_number;
 	char station_out_color;
 	int station_out_number;
+	int lock;//0:unlock 1:lock 
 } Acc;
 /*	Account init 	*/
 Acc *account_init();
