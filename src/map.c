@@ -14,6 +14,7 @@
  * >31 		65$
  */
 //calculate fee
+//Need to be modified
 float  stat_cal(char in_stat , int in_no , char out_stat , int out_no){
 	int fee = 0;	
 	printf("in_stat = %c -> ",in_stat);
