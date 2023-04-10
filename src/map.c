@@ -13,7 +13,7 @@
  * 26~31 	60$
  * >31 		65$
  */
-
+//qwer
 float  stat_cal(char in_stat , int in_no , char out_stat , int out_no){
 	int fee = 0;	
 	printf("in_stat = %c -> ",in_stat);
