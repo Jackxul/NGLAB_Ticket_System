@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "account.h"
-
+#include "map.h"
 int main(){
 	Acc *acorigin = account_init();	
 	//set the account
@@ -24,7 +24,7 @@ int main(){
 	printf("%d\n", get_account_station_out_no(acorigin));
 
 
-
+	stat_cal(get_account_station_in_color(acorigin), get_account_station_in_no(acorigin), get_account_station_out_color(acorigin), get_account_station_out_no(acorigin));
 
 	return 0;
 }

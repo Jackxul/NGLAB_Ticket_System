@@ -12,7 +12,7 @@ OBJ = $(patsubst %.c,$(B_DIR)/%.o,$(SRC))
 exe:=start
 
 $(exe): $(OBJ)
-	$(CC) $(OBJ) -o ./../exe/$@
+	$(CC) $(OBJ) -o $(E_DIR)/$@
 	@echo "Makefile: Done."
 $(B_DIR)/%.o: %.c
 	@$(CC) $(CFLAGS) -I $(I_DIR) -c $< -o $@
@@ -21,6 +21,6 @@ $(B_DIR)/%.o: %.c
 clean:
 	@echo "Makefile_sub : Cleaning up..."
 	rm -rf ./../build
-	rm -rf ./../exe
+	rm -rf $(E_DIR)
 	@echo "Makefile: Done."
 	@tree ./../

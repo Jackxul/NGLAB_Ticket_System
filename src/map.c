@@ -15,9 +15,18 @@
  */
 
 float  stat_cal(char in_stat , int in_no , char out_stat , int out_no){
+	int fee = 0;	
+	printf("in_stat = %c -> ",in_stat);
+	printf("%d\n",in_no);
+	printf("out_stat = %c -> ",out_stat);
+	printf("%d\n",out_no);
+/* ALGO */
 
 
-	return 0;
+
+
+
+	return fee;
 }
 void map(){
 
