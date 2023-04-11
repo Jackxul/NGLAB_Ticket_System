@@ -11,11 +11,11 @@ jobs:
     name: Update this repo's README
     runs-on: ubuntu-latest
     steps:
-      - uses: anmol098/waka-readme-stats@master
+      - uses: athul/waka-readme@master
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          REPOSITORY: <Jackxul/NGLAB_Ticket_System>
           LOCALE: "en"
           SHOW_COMMIT: "True"
           SHOW_DAYS_OF_WEEK: "True"
+          REPOSITORY: <Jackxul/NGLAB_Ticket_System>
