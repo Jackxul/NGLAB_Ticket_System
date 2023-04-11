@@ -47,8 +47,6 @@ make clean
     └── station_out.c
 ```
 
-# Waka
-
 <!--START_SECTION:waka-->
 <!--END_SECTION:waka-->
 
