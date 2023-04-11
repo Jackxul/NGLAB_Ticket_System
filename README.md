@@ -50,9 +50,6 @@ make clean
 # Waka
 
 <!--START_SECTION:waka-->
-
-
-
 <!--END_SECTION:waka-->
 
 # Station map
