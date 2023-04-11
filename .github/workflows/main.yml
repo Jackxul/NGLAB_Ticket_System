@@ -1,35 +1,22 @@
 name: Waka Readme
 
 on:
-  schedule:
-    # Runs at 18:30am IST
-    - cron: '30 18 * * *'
   workflow_dispatch:
+  schedule:
+    # Runs at 12am UTC
+    - cron: "0 0 * * *"
+
 jobs:
   update-readme:
-    name: Update Readme with Metrics
+    name: WakaReadme DevMetrics
     runs-on: ubuntu-latest
     steps:
-      - uses: anmol098/waka-readme-stats@master
+      - uses: athul/waka-readme@master
         with:
-          WAKATIME_API_KEY: ${{ secrets.NGLAB_PJ1 }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          SHOW_PROFILE_VIEWS: "False"
-          LOCALE: "False"
-          COMMIT_BY_ME: "False"
-          SECTION_NAME: "False"
-          COMMIT_MESSAGE: "False"
-          COMMIT_USERNAME: "False"
-          COMMIT_EMAIL: "False"
-          SHOW_UPDATED_DATE: "False"
-          UPDATED_DATE_FORMAT: "False"
-          SHOW_LINES_OF_CODE: "False"
-          SHOW_TOTAL_CODE_TIME: "False"
-          SHOW_PROJECTS: "False"
-          SHOW_TIMEZONE: "False"
-          SHOW_LANGUAGE_PER_REPO: "False"
-          SHOW_SHORT_INFO: "False"
-          SHOW_LOC_CHART: "False"
-          SYMBOL_VERSION: "False"
-          DEBUG_LOGGING: "False"
-
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          SHOW_TITLE: true
+          BLOCKS: ->
+          TIME_RANGE: all_time
+          SHOW_TIME: true
+          SHOW_MASKED_TIME: true
+          LANG_COUNT: 10
