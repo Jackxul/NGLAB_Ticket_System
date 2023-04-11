@@ -35,15 +35,27 @@ int main(){
 	int *p = &acorigin->wallet;
 	printf("Wallet for now : %d\n", *p);
 
-	printf("Enter Station ...\n");
+	printf("========\nEnter Station ...\n========\n");
+	
+	set_account_station_in_color(acorigin, "BR");
+
+	set_account_station_in_no(acorigin, 2);
 
 	check_remain(acorigin);
 
+	printf("Station Info : %s -> %d\n", get_account_station_in_color(acorigin), get_account_station_in_no(acorigin));
+
 	printf("Lock Stat : %d\n", acorigin->lock);
 
-	printf("Exit Station ...\n");
+	printf("========\nExit Station ...\n========\n");
 
 	set_account_wallet(acorigin, -1);
+
+	set_account_station_out_color(acorigin, "BL");
+
+	set_account_station_out_no(acorigin, 10);
+
+	printf("Station Info : %s -> %d\n", get_account_station_out_color(acorigin), get_account_station_out_no(acorigin));
 
 	check_remain(acorigin);
 
