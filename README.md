@@ -47,9 +47,6 @@ make clean
     └── station_out.c
 ```
 
-<!--START_SECTION:waka-->
-<!--END_SECTION:waka-->
-
 # Station map
 [ Charge_Fee ](https://www.metro.taipei/cp.aspx?n=ECEADC266D7120A7)
 
