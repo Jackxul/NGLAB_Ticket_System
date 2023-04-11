@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "account.h"
 //for both
 //Need to be modify
@@ -11,10 +12,10 @@ void check_remain(Acc *account);
 //for in
 //Need to be implemented
 char set_station_in_color(Acc *account , char *color); 
-int set_station_in_no(Acc *account , int num);
+int set_station_in_number(Acc *account , int num);
 //for out
 //Need to be implemented
 char set_station_out_color(Acc *account , char *color); 
-int set_station_out_no(Acc *account , int num);
+int set_station_out_number(Acc *account , int num);
 
-#endif /* STATION_H */
+#endif /* STATION_H */ 

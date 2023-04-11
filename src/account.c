@@ -9,9 +9,9 @@ Acc *account_init(){
 		account->accountNumber = 0;
 		strcpy(account->name, "NULL");
 		account->wallet = 100;
-		account->station_in_color = 'N';
+		strcpy(account->station_in_color , "N");
 		account->station_in_number = -1;
-		account->station_out_color = 'N';
+		strcpy(account->station_out_color , "N");
 		account->station_out_number = -1;
 		pthread_mutex_init(&account->mutex , NULL);//IMPORTANT!!!
 		account->lock = 0;
@@ -39,9 +39,9 @@ void set_account_wallet(Acc *account,int value){
 	account->wallet = value;
 	pthread_mutex_unlock(&account->mutex);
 }
-void set_account_station_in_color(Acc *account,char color){
+void set_account_station_in_color(Acc *account,char *color){
 	pthread_mutex_lock(&account->mutex);
-	account->station_in_color = color;
+	strcpy(account->station_in_color , color);
 	pthread_mutex_unlock(&account->mutex);
 }
 void set_account_station_in_no(Acc *account,int num){
@@ -49,9 +49,9 @@ void set_account_station_in_no(Acc *account,int num){
 	account->station_in_number = num;
 	pthread_mutex_unlock(&account->mutex);
 }
-void set_account_station_out_color(Acc *account,char color){
+void set_account_station_out_color(Acc *account,char *color){
 	pthread_mutex_lock(&account->mutex);
-	account->station_out_color = color;
+	strcpy(account->station_out_color , color);
 	pthread_mutex_unlock(&account->mutex);
 }
 void set_account_station_out_no(Acc *account,int num){
@@ -81,8 +81,8 @@ int get_account_wallet(Acc *account){
 	pthread_mutex_unlock(&account->mutex);
 	return value;
 }
-char get_account_station_in_color(Acc *account){
-	char color;
+char *get_account_station_in_color(Acc *account){
+	char *color;
 	pthread_mutex_lock(&account->mutex);
 	color = account->station_in_color;
 	pthread_mutex_unlock(&account->mutex);
@@ -95,8 +95,8 @@ int get_account_station_in_no(Acc *account){
 	pthread_mutex_unlock(&account->mutex);
 	return num;
 }
-char get_account_station_out_color(Acc *account){
-	char color;
+char *get_account_station_out_color(Acc *account){
+	char *color;
 	pthread_mutex_lock(&account->mutex);
 	color = account->station_out_color;
 	pthread_mutex_unlock(&account->mutex);

@@ -11,13 +11,47 @@ void check_remain(Acc *account){
 		printf("Error: Account is NULL\n");
 }
 //for in
-//Need to implement
-char set_station_in_color(Acc *account , char *color); 
-int set_station_in_no(Acc *account , int num);
+char set_station_in_color(Acc *account , char *color){
+	if(account){
+		strcpy(account->station_in_color , color);
+		return 0;
+	}
+	else{
+		printf("Error: Account is NULL\n");
+		return 1;
+	}
+}
+int set_station_in_number(Acc *account , int num){
+	if(account){
+		account->station_in_number = num;
+		return 0;
+	}
+	else{
+		printf("Error: Account is NULL\n");
+		return 1;
+	}
+}
 //for out
-//Need to implement
-char set_station_out_color(Acc *account , char *color); 
-int set_station_out_no(Acc *account , int num);
+char set_station_out_color(Acc *account , char *color){
+	if(account){
+		strcpy(account->station_out_color , color);
+		return 0;
+	}
+	else{
+		printf("Error: Account is NULL\n");
+		return 1;
+	}
+}
+int set_station_out_number(Acc *account , int num){
+	if(account){
+		account->station_out_number = num;
+		return 0;
+	}
+	else{
+		printf("Error: Account is NULL\n");
+		return 1;
+	}
+}
 
 
 
