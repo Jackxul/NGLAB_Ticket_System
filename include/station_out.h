@@ -1,6 +1,5 @@
-//station_out.c
-#include "station.h"
-void station_out(){
+//station_out.h
+#include "account.h"
 //record station color
 //record station number
 //record time
@@ -10,4 +9,3 @@ void station_out(){
 
 
 
-}

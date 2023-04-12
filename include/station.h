@@ -10,11 +10,9 @@
 //Need to be modify
 void check_remain(Acc *account);
 //for in
-//Need to be implemented
 char set_station_in_color(Acc *account , char *color); 
 int set_station_in_number(Acc *account , int num);
 //for out
-//Need to be implemented
 char set_station_out_color(Acc *account , char *color); 
 int set_station_out_number(Acc *account , int num);
 
