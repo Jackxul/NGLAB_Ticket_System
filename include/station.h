@@ -28,14 +28,11 @@ static struct station{
 };
 
 
-void *station_login(char *PSK);
-
-void check_remain(Acc *account);
-//for in
-char set_station_in_color(Acc *account , char *color); 
-int set_station_in_number(Acc *account , int num);
+void *station_login(char *PSK);//for login to set station setting
+void *set_station(char *color , int num);//for set station setting
+void check_remain(Acc *account);//for check account remain >= 0
 //for out
-char set_station_out_color(Acc *account , char *color); 
+char set_station_out_color(Acc *account , char *color); //
 int set_station_out_number(Acc *account , int num);
 
 #endif /* STATION_H */ 
