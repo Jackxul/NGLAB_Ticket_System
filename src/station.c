@@ -27,7 +27,7 @@ void *set_station(char *color , int num , char *color2 , int num2){
 }
 
 
-//
+//for in
 void check_remain(Acc *account){
 	if(account)
 		account->lock = (account->wallet < 0) ? 1 : 0; //set account lock for next time enter a station

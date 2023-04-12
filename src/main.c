@@ -9,11 +9,7 @@ int main(){
 	//set the account
 	set_account_number(acorigin, 0);
 	set_account_name(acorigin, "Jack");
-	set_account_wallet(acorigin, 99999);
-	set_account_station_in_color(acorigin, "R");
-	set_account_station_in_no(acorigin, 1);
-	set_account_station_out_color(acorigin, "B");
-	set_account_station_out_no(acorigin, 10);
+	set_account_wallet(acorigin, 100);
 	//print the account
 	//
 	//
@@ -21,15 +17,18 @@ int main(){
 	printf("Account Number: %d\n", get_account_number(acorigin));
 	printf("Account Name: %s\n", get_account_name(acorigin));
 	printf("Account Wallet: %d\n", get_account_wallet(acorigin));
+
+	//Need to be implemented
+	//stat_cal(*get_account_station_in_color(acorigin), get_account_station_in_no(acorigin), *get_account_station_out_color(acorigin), get_account_station_out_no(acorigin));
+
+
+	//print out accout station info
+	/*
 	printf("Account Station In Color: %s ->", get_account_station_in_color(acorigin));
 	printf("%d\n", get_account_station_in_no(acorigin));
 	printf("Account Station Out Color: %s ->", get_account_station_out_color(acorigin));
 	printf("%d\n", get_account_station_out_no(acorigin));
-
-	//Need to be implemented
-	stat_cal(*get_account_station_in_color(acorigin), get_account_station_in_no(acorigin), *get_account_station_out_color(acorigin), get_account_station_out_no(acorigin));
-
-
+	*/
 
 	//some example of how to access account variables
 	int *p = &acorigin->wallet;
@@ -37,10 +36,6 @@ int main(){
 
 	printf("========\nEnter Station ...\n========\n");
 	
-	set_account_station_in_color(acorigin, "BR");
-
-	set_account_station_in_no(acorigin, 2);
-
 	check_remain(acorigin);
 
 	printf("Station Info : %s -> %d\n", get_account_station_in_color(acorigin), get_account_station_in_no(acorigin));
@@ -50,10 +45,6 @@ int main(){
 	printf("========\nExit Station ...\n========\n");
 
 	set_account_wallet(acorigin, -1);
-
-	set_account_station_out_color(acorigin, "BL");
-
-	set_account_station_out_no(acorigin, 10);
 
 	printf("Station Info : %s -> %d\n", get_account_station_out_color(acorigin), get_account_station_out_no(acorigin));
 
