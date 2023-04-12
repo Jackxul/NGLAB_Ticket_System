@@ -5,6 +5,9 @@
 #include "station.h"
 #include "map.h"
 int main(){
+	char choice = '\0';
+	bool invalid = false;
+
 	Acc *acorigin = account_init();	
 	//set the account
 	set_account_number(acorigin, 0);
@@ -21,7 +24,39 @@ int main(){
 	//Need to be implemented
 	//stat_cal(*get_account_station_in_color(acorigin), get_account_station_in_no(acorigin), *get_account_station_out_color(acorigin), get_account_station_out_no(acorigin));
 
+	printf("|==================================|\n");
+	printf("|                                  |\n");
+	printf("|   Welcome to the Metro System    |\n");
+	printf("|----------------------------------|\n");
+	printf("|   1. U s e r       M o d e       |\n");
+	printf("|   2. A d m i n     M o d e       |\n");
+	printf("|   3. E x i t                     |\n");
+	printf("|                                  |\n");
+	printf("|==================================|\n");
+	while(true){
+		if(!invalid)
+			printf("Please enter your choice => ");
+		choice = getchar();
+		printf("\n");
+		if(choice == '1'){
+			printf("User Mode\n");
+			break;
+		}
+		else if(choice == '2'){
+			printf("Admin Mode\n");
+			break;
+		}
+		else if(choice == '3'){
+			printf("Exit\n");
+			exit(0);
+		}else{
+			if(!invalid)
+				printf("Invalid Input\n");
+			invalid = true;
+			choice = '\0';
+		}
 
+	}
 	//print out accout station info
 	/*
 	printf("Account Station In Color: %s ->", get_account_station_in_color(acorigin));
@@ -31,6 +66,9 @@ int main(){
 	*/
 
 	//some example of how to access account variables
+	//
+	//
+/*
 	int *p = &acorigin->wallet;
 	printf("Wallet for now : %d\n", *p);
 
@@ -51,7 +89,7 @@ int main(){
 	check_remain(acorigin);
 
 	printf("Lock Stat : %d\n", acorigin->lock);
-
+*/
 	return 0;
 }
 //EOF

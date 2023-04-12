@@ -47,6 +47,22 @@ make clean
     └── station_out.c
 ```
 
+>To Do List
+```
+Ticket System
+│ 
+├── Admin mode
+│   ├── Buy Card(Account init ---> account.h)
+│   ├── Take MRT(Account set station info ---> account.h)
+│   ├── Add value(Top up)
+│   └── Buy one-way ticket( ? )
+│ 
+└── User mode
+    ├── Set station info(Login for setting ---> station.h)
+    ├── Store user info( ? )
+    └── Define station fee(Fee algo ---> map.h)
+```
+
 # Station map
 [ Charge_Fee ](https://www.metro.taipei/cp.aspx?n=ECEADC266D7120A7)
 
