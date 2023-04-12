@@ -43,6 +43,12 @@ int main(){
 		printf("\n");
 		if(choice == '1'){
 			printf("User Mode\n");
+			#ifdef _WIN32
+				system("cls");
+			#else
+				system("clear");
+			#endif
+			user_menu();
 			break;
 		}
 		else if(choice == '2'){
