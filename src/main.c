@@ -1,25 +1,28 @@
 //Main.c
 #include <stdio.h>
 #include <stdlib.h>
-#include "account.h"
-#include "station.h"
-#include "map.h"
+#include <stdbool.h>
+//#include "account.h"
+//#include "station.h"
+//#include "map.h"
+#include "user.h"
+#include "admin.h"
 int main(){
 	char choice = '\0';
 	bool invalid = false;
 
-	Acc *acorigin = account_init();	
+//	Acc *acorigin = account_init();	
 	//set the account
-	set_account_number(acorigin, 0);
-	set_account_name(acorigin, "Jack");
-	set_account_wallet(acorigin, 100);
+//	set_account_number(acorigin, 0);
+//	set_account_name(acorigin, "Jack");
+//	set_account_wallet(acorigin, 100);
 	//print the account
 	//
 	//
 	//some example of how to access account variables
-	printf("Account Number: %d\n", get_account_number(acorigin));
-	printf("Account Name: %s\n", get_account_name(acorigin));
-	printf("Account Wallet: %d\n", get_account_wallet(acorigin));
+//	printf("Account Number: %d\n", get_account_number(acorigin));
+//	printf("Account Name: %s\n", get_account_name(acorigin));
+//	printf("Account Wallet: %d\n", get_account_wallet(acorigin));
 
 	//Need to be implemented
 	//stat_cal(*get_account_station_in_color(acorigin), get_account_station_in_no(acorigin), *get_account_station_out_color(acorigin), get_account_station_out_no(acorigin));
@@ -44,6 +47,12 @@ int main(){
 		}
 		else if(choice == '2'){
 			printf("Admin Mode\n");
+			#ifdef _WIN32
+				system("cls");
+			#else
+				system("clear");
+			#endif
+			admin_menu();
 			break;
 		}
 		else if(choice == '3'){

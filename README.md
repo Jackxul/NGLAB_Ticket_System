@@ -51,15 +51,16 @@ make clean
 ```
 Ticket System
 │ 
-├── Admin mode
+├── User mode
 │   ├── Buy Card(Account init ---> account.h)
 │   ├── Take MRT(Account set station info ---> account.h)
 │   ├── Add value(Top up)
 │   └── Buy one-way ticket( ? )
 │ 
-└── User mode
+└── Admin mode
     ├── Set station info(Login for setting ---> station.h)
     ├── Store user info( ? )
+    ├── Search user info( ? )
     └── Define station fee(Fee algo ---> map.h)
 ```
 
