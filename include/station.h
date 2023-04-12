@@ -12,15 +12,19 @@
 //for both
 //Need to be modify
 static struct station{
-	char color[10];
-	int number;
+	char in_color[10];
+	char out_color[10];
+	int in_number;
+	int out_number;
 	time_t time;
 	char PSK[10];
 	bool lock;
 	pthread_mutex_t mutex;
 } ST = {
 	"NULL",
-	1,
+	"NULL",
+	0,
+	0,
 	0,
 	"NGLAB_2023",
 	0,
@@ -29,10 +33,7 @@ static struct station{
 
 
 void *station_login(char *PSK);//for login to set station setting
-void *set_station(char *color , int num);//for set station setting
+void *set_station(char *color , int num , char *color2 , int num2);//for set station setting
 void check_remain(Acc *account);//for check account remain >= 0
-//for out
-char set_station_out_color(Acc *account , char *color); //
-int set_station_out_number(Acc *account , int num);
 
 #endif /* STATION_H */ 

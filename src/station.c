@@ -13,11 +13,13 @@ void *station_login(char *PSK){
 	pthread_mutex_unlock(&ST.mutex);
 }
 
-void *set_station(char *color , int num){
+void *set_station(char *color , int num , char *color2 , int num2){
 	if(!ST.lock){
 		pthread_mutex_lock(&ST.mutex);
-		strcpy(ST.color , color);
-		ST.number = num;
+		strcpy(ST.in_color , color);
+		ST.in_number = num;
+		strcpy(ST.out_color , color2);
+		ST.out_number = num2;
 		pthread_mutex_unlock(&ST.mutex);
 	}
 	else
@@ -36,8 +38,8 @@ void check_remain(Acc *account){
 char set_station_in(Acc *account , char *color , int num){
 	if(account){
 		pthread_mutex_lock(&account->mutex);
-		strcpy(account->station_in_color , ST.color);
-		account->station_in_number = ST.number;
+		strcpy(account->station_in_color , ST.in_color);
+		account->station_in_number = ST.in_number;
 		pthread_mutex_unlock(&account->mutex);
 		return 0;
 	}
@@ -47,19 +49,12 @@ char set_station_in(Acc *account , char *color , int num){
 	}
 }
 //for out
-char set_station_out_color(Acc *account , char *color){
+char set_station_out(Acc *account , char *color , int num){
 	if(account){
-		strcpy(account->station_out_color , color);
-		return 0;
-	}
-	else{
-		printf("Error: Account is NULL\n");
-		return 1;
-	}
-}
-int set_station_out_number(Acc *account , int num){
-	if(account){
-		account->station_out_number = num;
+		pthread_mutex_lock(&account->mutex);
+		strcpy(account->station_out_color , ST.out_color);
+		account->station_out_number = ST.out_number;
+		pthread_mutex_unlock(&account->mutex);
 		return 0;
 	}
 	else{

@@ -10,6 +10,7 @@
 //record time
 //
 
+//for out
 char set_station_out(Acc *account , char *color , int num); //for set station status to account
 
 #endif /* STATION_OUT_H */
