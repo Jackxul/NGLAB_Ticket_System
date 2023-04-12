@@ -4,6 +4,16 @@
 
 //for both
 //Need to be modified
+
+void *station_login(char *PSK){
+	pthread_mutex_lock(&ST.mutex);
+	ST.lock = (strcmp(ST.PSK , PSK) != 0) ? 0 : 1;//0 login denied , 1 login accept
+	pthread_mutex_unlock(&ST.mutex);
+}
+
+
+
+//
 void check_remain(Acc *account){
 	if(account)
 		account->lock = (account->wallet < 0) ? 1 : 0; //set account lock for next time enter a station
