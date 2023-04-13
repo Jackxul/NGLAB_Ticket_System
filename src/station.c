@@ -7,10 +7,17 @@
 //for both
 //Need to be modified
 
-void *station_login(char *PSK){
+bool station_login(char *PSK){
 	pthread_mutex_lock(&ST.mutex);
-	ST.lock = (strcmp(ST.PSK , PSK) != 0) ? 0 : 1;//0 login denied , 1 login accept
+	if(strlen(PSK) == strlen(ST.PSK))
+		ST.lock = (strcmp(ST.PSK , PSK) != 0) ? 0 : 1;//0 login denied , 1 login accept
+	else
+		ST.lock = 0;
 	pthread_mutex_unlock(&ST.mutex);
+	if(ST.lock)
+		return true;
+	else
+		return false;
 }
 
 void *set_station(char *color , int num , char *color2 , int num2){
@@ -22,10 +29,10 @@ void *set_station(char *color , int num , char *color2 , int num2){
 		ST.out_number = num2;
 		pthread_mutex_unlock(&ST.mutex);
 	}
-	else
+	else{
 		printf("Access Denied!\nReason : Station is locked\n");
+	}
 }
-
 
 //for in
 void check_remain(Acc *account){
