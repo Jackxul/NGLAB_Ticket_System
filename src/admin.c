@@ -70,19 +70,14 @@ void admin_menu()
 	switch(choice){
 		case 1:
 			//list station color line  
+			//define command for clear screen via system call in different OS
 			#ifdef _WIN32
 				system("cls");
 			#else
 				system("clear");
 			#endif
-			//BR
-			//R
-			//G
-			//O
-			//BL
-			selection();	
-
-
+			selection();//select for station color	
+			//select for station number and name
 			//set_station_info();   need to implement (ask for PSK and call *station_login(*PSK))
 			break;
 		case 2:
