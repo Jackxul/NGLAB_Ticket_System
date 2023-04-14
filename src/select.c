@@ -3,8 +3,33 @@
 //Jack_Xul
 #include "select.h"
 void selection(){
-	char *st_info[]={"BR" , "BL" , "G" , "Y" , "R"};
-	char *BR[] = {"BR1" , "BR2" , "BR3" , "BR4" , "BR5"};
+	const char *st_info[]={"BR" , "BL" , "G" , "Y" , "R"};
+	const char *BR[] = {
+		"BR1-Taipei Zoo",
+		"BR2-Muzha",
+		"BR3-Wanfang Community",
+		"BR4-Wanfang Hospital",
+		"BR5-Xinhai",
+		"BR6-Linguang",
+		"BR7-Liuzhangli",
+		"BR8-Technology Building",
+		"BR9-Daan",
+		"BR10-Zhongxiao Fuxing",
+		"BR11-Nanjing Fuxing",
+		"BR12-Zhonshan Junior High School",
+		"BR13-Songshan Airport",
+		"BR14-Dazhi",
+		"BR15-Jiannan Road",
+		"BR16-Xihu",
+		"BR17-Gangqian",
+		"BR18-Wende",
+		"BR19-Neihu",
+		"BR20-Dahu Park",
+		"BR21-Huzhou",
+		"BR22-Donghu",
+		"BR23-Nangang Software Park",
+		"BR24-Taipei Nangang Exhibition Center"
+	};
 	const char *BL[] = {
 		"BL1-Dingpu" ,
 		"BL2-Yongning" ,
@@ -31,8 +56,28 @@ void selection(){
 		"BL22-Nangang" ,
 		"BL23-Taipei Nangang Exhibition Center"
 	};
-	char *G[] = {"G1" , "G2" , "G3" , "G4" , "G5"};
-	char *Y[] = {"Y1" , "Y2" , "Y3" , "Y4" , "Y5"};
+	const char *G[] = {
+		"G1-Xindian",
+		"G2-Xindian District Office",
+		"G3-Qizhang",
+		"G4-Dapinglin",
+		"G5-Jingmei",
+		"G6-Wanlong",
+		"G7-Gongguan",
+		"G8-Taipower Building",
+		"G9-Guting",
+		"G10-Chiang Kai-Shek Memorial Hall",
+		"G11-Xiaonanmen",
+		"G12-Ximen",
+		"G13-Beimen",
+		"G14-Zhonshan",
+		"G15-Songjiang Nanjing",
+		"G16-Nanjing Fuxing",
+		"G17-Taipei Arena",
+		"G18-Nanjing Sanmin",
+		"G19-Songshan"
+	};
+	const char *Y[] = {"Y1" , "Y2" , "Y3" , "Y4" , "Y5"};
 	const char* R[] = {
   		"R2-Xiangshan",
   		"R3-Taipei 101 World Trade Center",
