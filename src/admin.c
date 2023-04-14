@@ -1,12 +1,12 @@
 //admin.c
 #include "admin.h"
 #include "station.h"
+#include "select.h"
 //for terminal echoing
 #include <termios.h>
 #include <unistd.h>
 //
 #define PSK_LEN 20
-
 
 bool get_psk(char *password){
 	struct termios old_term, new_term;
@@ -80,9 +80,7 @@ void admin_menu()
 			//G
 			//O
 			//BL
-			printf("");
-			//scanf("");//scanf for selection of station color
-			
+			selection();	
 
 
 			//set_station_info();   need to implement (ask for PSK and call *station_login(*PSK))
