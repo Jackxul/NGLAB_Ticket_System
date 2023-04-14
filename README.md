@@ -1,11 +1,18 @@
 # NGLAB_Ticket_System
 > A Simple Train Ticket System Exercise for NTUST NGLab
 
-# Motivation 
+# Motivation and Goal 🚩
 - Improve one's programming skill
 * Know how to use Github more proficiently
 + Learn about the flow of how to build a project
-# How to clone and run the project
+
+# Time and Language 📊
+[![wakatime](https://wakatime.com/badge/user/a6276c2f-01fc-4408-bfeb-0f90face6872/project/fb59d47c-9d23-422f-8a97-58d431adea10.svg)](https://wakatime.com/badge/user/a6276c2f-01fc-4408-bfeb-0f90face6872/project/fb59d47c-9d23-422f-8a97-58d431adea10)
+
+<a href="https://wakatime.com"><img src="https://wakatime.com/share/@a6276c2f-01fc-4408-bfeb-0f90face6872/062599e4-37fc-43a1-9f9a-8af2c5c8fbc0.png" /></a>
+
+
+# How to clone and run the project ✍️
 > clone
 ```
 git clone  git@github.com:Jackxul/NGLAB_Ticket_System.git
@@ -20,34 +27,44 @@ make
 ```
 make clean
 ```
->Structure
+>Structure 👷‍♂️
 ```tree .
 .
 ├── Makefile
 ├── README.md
 ├── build
 │   ├── account.o
+│   ├── admin.o
 │   ├── main.o
 │   ├── map.o
-│   ├── station_in.o
-│   └── station_out.o
+│   ├── select.o
+│   ├── station.o
+│   └── user.o
 ├── exe
 │   └── start
 ├── include
 │   ├── account.h
-│   └── map.h
+│   ├── admin.h
+│   ├── map.h
+│   ├── select.h
+│   ├── station.h
+│   ├── station_in.h
+│   ├── station_out.h
+│   └── user.h
 ├── ref
 │   └── station_map.png
 └── src
     ├── Makefile
     ├── account.c
+    ├── admin.c
     ├── main.c
     ├── map.c
-    ├── station_in.c
-    └── station_out.c
+    ├── select.c
+    ├── station.c
+    └── user.c
 ```
 
->To Do List
+>To Do List 🔧
 ```
 Ticket System
 │ 
@@ -65,7 +82,9 @@ Ticket System
     └── Define station fee(Fee algo ---> map.h)
 ```
 
-# Station map
+
+
+# Station map 🗺️
 [ Charge_Fee ](https://www.metro.taipei/cp.aspx?n=ECEADC266D7120A7)
 
 [ Map_reference ](https://www.metro.taipei/cp.aspx?n=91974F2B13D997F1)
