@@ -59,6 +59,7 @@ Ticket System
 │ 
 └── Admin mode
     ├── Set station info(Login for setting ---> station.h)
+    ├── Set station info( set station info ---> station.h )
     ├── Store user info( ? )
     ├── Search user info( ? )
     └── Define station fee(Fee algo ---> map.h)

@@ -60,7 +60,8 @@ void admin_menu()
 	printf("|   Select    what    to    do     |\n");
 	printf("|----------------------------------|\n");
 	printf("|   1. Set     Station     Info    |\n");
-	printf("|   2. Search     User     Info    |\n");
+	printf("|   2. Show    Station     Info    |\n");
+	printf("|   3. Search     User     Info    |\n");
 	printf("|                                  |\n");
 	printf("|==================================|\n");
 
@@ -68,11 +69,30 @@ void admin_menu()
 	scanf("%d", &choice);
 	switch(choice){
 		case 1:
+			//list station color line  
+			#ifdef _WIN32
+				system("cls");
+			#else
+				system("clear");
+			#endif
+			//BR
+			//R
+			//G
+			//O
+			//BL
+			printf("");
+			//scanf("");//scanf for selection of station color
+			
+
 
 			//set_station_info();   need to implement (ask for PSK and call *station_login(*PSK))
 			break;
 		case 2:
 			//search_user_info();   need to implement
+			break;
+		case 3:
+
+
 			break;
 		default:
 			printf("Invalid Input\n");

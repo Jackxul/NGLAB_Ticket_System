@@ -12,7 +12,7 @@ OBJ = $(patsubst %.c,$(B_DIR)/%.o,$(SRC))
 exe:=start
 
 $(exe): $(OBJ)
-	$(CC) $(OBJ) -o $(E_DIR)/$@
+	$(CC) $(OBJ) -lncurses -o $(E_DIR)/$@
 	@echo "Makefile: Done."
 $(B_DIR)/%.o: %.c
 	@$(CC) $(CFLAGS) -I $(I_DIR) -c $< -o $@
