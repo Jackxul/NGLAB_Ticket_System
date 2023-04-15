@@ -6,11 +6,7 @@
 * Know how to use Github more proficiently
 + Learn about the flow of how to build a project
 
-# Time and Language 📊
 [![wakatime](https://wakatime.com/badge/user/a6276c2f-01fc-4408-bfeb-0f90face6872/project/fb59d47c-9d23-422f-8a97-58d431adea10.svg)](https://wakatime.com/badge/user/a6276c2f-01fc-4408-bfeb-0f90face6872/project/fb59d47c-9d23-422f-8a97-58d431adea10)
-
-<a href="https://wakatime.com"><img src="https://wakatime.com/share/@a6276c2f-01fc-4408-bfeb-0f90face6872/062599e4-37fc-43a1-9f9a-8af2c5c8fbc0.png" /></a>
-
 
 # How to clone and run the project ✍️
 > clone
