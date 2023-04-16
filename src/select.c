@@ -149,7 +149,6 @@ int colo_selection(){
 			case '\n': //Enter
 				mvprintw(st_size + 2 , 0,"Station Info : %s\n", st_info[select_item]);
 				refresh();//For the screen to update ==> used in curses mode
-				getch();
 				flag = false;
 				break;
 		}
