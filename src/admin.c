@@ -84,6 +84,7 @@ void admin_menu()
 			int selection = colo_selection();	
 			int st = st_selection(&selection);
 			printf("Select Info : %d  Line  %d Station\n", selection, st);
+			printf("Station IN : %s --> %d \n", ST.in_color, ST.in_number);
 			//set_station_info();   need to implement (ask for PSK and call *station_login(*PSK))
 			break;
 		case 2:

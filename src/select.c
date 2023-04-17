@@ -2,7 +2,6 @@
 //For station selection
 //Jack_Xul
 #include "select.h"
-
 const char *st_info[]={"BR" , "BL" , "G" , "Y" , "R"};
 const char *BR[] = {
 	"BR1-Taipei Zoo",
@@ -107,6 +106,16 @@ const char* R[] = {
   	"R27-YHongshulin",
   	"R28-Tamsui"
 };
+
+/*
+ *
+ *
+ *Color selection
+ *
+ *
+ * */
+
+
 int colo_selection(){
 	int st_size = sizeof(st_info)/sizeof(st_info[0]);
 	int select_item = 0;
@@ -156,6 +165,17 @@ int colo_selection(){
 	//endwin();//end curses mode == (nocbreak() + echo() + keypad(stdscr, FALSE))
 	return select_item;
 }
+
+
+/*
+ *
+ *
+ *Station selection
+ *
+ *
+ * */
+
+
 int st_selection(int *value){
 //value 
 //0 : BR
@@ -163,12 +183,13 @@ int st_selection(int *value){
 //2 : G
 //3 : Y
 //4 : R
+	char *stinfo = calloc(sizeof(char) , 10); // declare a empty array , needs to free after use(must)
 	int sub_nums;
 	int select_item = 0;
 	bool flag = true;
 	int c;
 	switch (*value){
-		case 0:
+		case 0://BR
 			sub_nums = sizeof(BR)/sizeof(BR[0]);
 			while(flag){
 				clear();
@@ -207,8 +228,11 @@ int st_selection(int *value){
 						break;
 				}
 			}
+			sprintf(stinfo, "%s", st_info[*value]);
+			In_set(stinfo , &select_item);	
+			free(stinfo);
 			break;
-		case 1:
+		case 1://BL
 			sub_nums = sizeof(BL)/sizeof(BL[0]);
 			while(flag){
 				clear();
@@ -247,8 +271,11 @@ int st_selection(int *value){
 						break;
 				}
 			}
+			sprintf(stinfo, "%s", st_info[*value]);
+			In_set(stinfo , &select_item);	
+			free(stinfo);
 			break;
-		case 2:
+		case 2://G
 			sub_nums = sizeof(G)/sizeof(G[0]);
 			while(flag){
 				clear();
@@ -287,10 +314,13 @@ int st_selection(int *value){
 						break;
 				}
 			}
+			sprintf(stinfo, "%s", st_info[*value]);
+			In_set(stinfo , &select_item);	
+			free(stinfo);
 			break;
-		case 3:
+		case 3://Y
 			break;
-		case 4:
+		case 4://R
 			sub_nums = sizeof(R)/sizeof(R[0]);
 			while(flag){
 				clear();
@@ -329,6 +359,9 @@ int st_selection(int *value){
 						break;
 				}
 			}
+			sprintf(stinfo, "%s", st_info[*value]);
+			In_set(stinfo , &select_item);	
+			free(stinfo);
 			break;
 		default:
 			printw("Error!\n");

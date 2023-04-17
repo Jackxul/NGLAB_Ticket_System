@@ -33,7 +33,9 @@ static struct station{
 
 
 bool station_login(char *PSK);//for login to set station setting
-void *set_station(char *color , int num , char *color2 , int num2);//for set station setting
+void *In_set(char *color , int *num );//for set station setting
+void *Out_set(char *color , int *num );//for set station setting
+								   //
 void check_remain(Acc *account);//for check account remain >= 0
 
 #endif /* STATION_H */ 

@@ -14,19 +14,20 @@ bool station_login(char *PSK){
 	else
 		ST.lock = 0;
 	pthread_mutex_unlock(&ST.mutex);
+
+	//printf("ST Lock = %d\n" ,ST.lock);
+
 	if(ST.lock)
 		return true;
 	else
 		return false;
 }
 
-void *set_station(char *color , int num , char *color2 , int num2){
+void *In_set(char *color , int *num ){
 	if(!ST.lock){
 		pthread_mutex_lock(&ST.mutex);
 		strcpy(ST.in_color , color);
-		ST.in_number = num;
-		strcpy(ST.out_color , color2);
-		ST.out_number = num2;
+		ST.in_number = *num;
 		pthread_mutex_unlock(&ST.mutex);
 	}
 	else{
@@ -34,6 +35,17 @@ void *set_station(char *color , int num , char *color2 , int num2){
 	}
 }
 
+void *Out_set(char *color , int *num ){
+	if(!ST.lock){
+		pthread_mutex_lock(&ST.mutex);
+		strcpy(ST.out_color , color);
+		ST.out_number = *num;
+		pthread_mutex_unlock(&ST.mutex);
+	}
+	else{
+		printf("Access Denied!\nReason : Station is locked\n");
+	}
+}
 //for in
 void check_remain(Acc *account){
 	if(account)
