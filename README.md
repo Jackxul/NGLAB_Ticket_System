@@ -13,6 +13,18 @@
 ```
 git clone  git@github.com:Jackxul/NGLAB_Ticket_System.git
 ```
+> before build
+
+build tool
+```
+sudo apt update
+sudo apt install build-essential
+```
+
+library
+```
+sudo apt-get install libncurses5-dev libncursesw5-dev
+```
 > start
 ```
 cd NGLAB_Ticket_System
