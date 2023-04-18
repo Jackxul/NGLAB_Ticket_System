@@ -5,8 +5,10 @@
 #include "account.h"
 void user_menu()
 {
+	char *test_in = In_Colo_get();
+	char *test_out = Out_Colo_get();
 	int choice = '\0';
-
+	//const char *test[]={"BR" , "BL" , "G" , "Y" , "R"};
 	printf("|==================================|\n");
 	printf("|                                  |\n");
 	printf("|   Select    what    to    do     |\n");
@@ -26,6 +28,9 @@ void user_menu()
 			free(account_init());
 			break;
 		case 2:
+			
+			printf("Station IN : %s --> %d \n", test_in, *In_st_get());
+			printf("Station Out : %s --> %d \n", test_out, *Out_st_get());
 			//take_mrt();
 			break;
 		case 3:

@@ -354,6 +354,7 @@ int st_selection(int *value){
 			printw("Error!\n");
 			break;
 	}
+
 	endwin();//end curses mode == (nocbreak() + echo() + keypad(stdscr, FALSE))
 
 

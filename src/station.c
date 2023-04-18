@@ -50,6 +50,12 @@ int *In_st_get(){
 	return &ST.in_number;
 }
 
+char *Out_Colo_get(){
+	return ST.out_color;
+}
+int *Out_st_get(){
+	return &ST.out_number;
+}
 void *Out_set(const char *color , int *num ){
 	if(ST.lock){
 		pthread_mutex_lock(&ST.mutex);

@@ -21,10 +21,10 @@ static struct station{
 	bool lock;
 	pthread_mutex_t mutex;
 } ST = {
-	"NULL",
-	"NULL",
-	0,
-	0,
+	"BR",
+	"R",
+	12,
+	9,
 	0,
 	"NGLAB_2023",
 	0,
@@ -39,6 +39,8 @@ void *In_set(const char *color , int *num );//for set station setting
 void *Out_set(const char *color , int *num );//for set station setting
 char *In_Colo_get();//for set station setting
 int *In_st_get();//for set station setting
+char *Out_Colo_get();//for set station setting
+int *Out_st_get();//for set station setting
 								   //
 void check_remain(Acc *account);//for check account remain >= 0
 

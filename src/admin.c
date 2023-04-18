@@ -55,55 +55,56 @@ void admin_menu()
 	
 	
 
+		printf("|==================================|\n");
+		printf("|                                  |\n");
+		printf("|   Select    what    to    do     |\n");
+		printf("|----------------------------------|\n");
+		printf("|   1. Set     Station     Info    |\n");
+		printf("|   2. Show    Station     Info    |\n");
+		printf("|   3. Search     User     Info    |\n");
+		printf("|   4. Exit                        |\n");
+		printf("|==================================|\n");
 
-	printf("|==================================|\n");
-	printf("|                                  |\n");
-	printf("|   Select    what    to    do     |\n");
-	printf("|----------------------------------|\n");
-	printf("|   1. Set     Station     Info    |\n");
-	printf("|   2. Show    Station     Info    |\n");
-	printf("|   3. Search     User     Info    |\n");
-	printf("|                                  |\n");
-	printf("|==================================|\n");
-
-	printf("Please enter your choice => ");
-	scanf("%d", &choice);
-	switch(choice){
-		case 1:
-			//list station color line  
-			#ifdef _WIN32
-				system("cls");
-			#else
-				system("clear");
-			#endif
-			//BR
-			//R
-			//G
-			//O
-			//BL
-			
-			int selection = colo_selection();	
-			int st = st_selection(&selection);
-			printf("Select Info : %s  Line  %d Station\n", starray[selection], st);
-			*In_set(starray[selection], &st);
-			/*
-			 * char *colo = In_Colo_get();
-			 *printf("Station IN : %s --> %d \n", colo, *In_st_get());
-			 */
-			//set_station_info();   need to implement (ask for PSK and call *station_login(*PSK))
-			break;
-		case 2:
-			//search_user_info();   need to implement
-			break;
-		case 3:
+		printf("Please enter your choice => ");
+		scanf("%d", &choice);
+		switch(choice){
+			case 1:
+				//list station color line  
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
+				//BR
+				//R
+				//G
+				//O
+				//BL
+				
+				int selection = colo_selection();	
+				int st = st_selection(&selection);
+				printf("Select Info : %s  Line  %d Station\n", starray[selection], st);
+				*In_set(starray[selection], &st);
+				/*
+				 * char *colo = In_Colo_get();
+				 *printf("Station IN : %s --> %d \n", colo, *In_st_get());
+				 */
+				//set_station_info();   need to implement (ask for PSK and call *station_login(*PSK))
+				break;
+			case 2:
+				//search_user_info();   need to implement
+				break;
+			case 3:
 
 
-			break;
-		default:
-			printf("Invalid Input\n");
-			exit(0);
-	}
-
+				break;
+			case 4:
+				exit(0);
+				break;
+			default:
+				printf("Invalid Input\n");
+				exit(0);
+		}
 	lock_reset();
 	
 }
