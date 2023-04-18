@@ -132,7 +132,7 @@ int colo_selection(){
 		printw("Select Info : \n");
 		for (int i = 0; i < st_size; i++){
 			if (i == select_item){
-				printw("-> %s\n", st_info[i]);
+				printw("--> %s\n", st_info[i]);
 			}else{
 				printw("   %s\n", st_info[i]);
 			}
@@ -183,7 +183,6 @@ int st_selection(int *value){
 //2 : G
 //3 : Y
 //4 : R
-	char *stinfo = calloc(sizeof(char) , 10); // declare a empty array , needs to free after use(must)
 	int sub_nums;
 	int select_item = 0;
 	bool flag = true;
@@ -228,9 +227,6 @@ int st_selection(int *value){
 						break;
 				}
 			}
-			sprintf(stinfo, "%s", st_info[*value]);
-			In_set(stinfo , &select_item);	
-			free(stinfo);
 			break;
 		case 1://BL
 			sub_nums = sizeof(BL)/sizeof(BL[0]);
@@ -271,9 +267,6 @@ int st_selection(int *value){
 						break;
 				}
 			}
-			sprintf(stinfo, "%s", st_info[*value]);
-			In_set(stinfo , &select_item);	
-			free(stinfo);
 			break;
 		case 2://G
 			sub_nums = sizeof(G)/sizeof(G[0]);
@@ -314,9 +307,6 @@ int st_selection(int *value){
 						break;
 				}
 			}
-			sprintf(stinfo, "%s", st_info[*value]);
-			In_set(stinfo , &select_item);	
-			free(stinfo);
 			break;
 		case 3://Y
 			break;
@@ -359,9 +349,6 @@ int st_selection(int *value){
 						break;
 				}
 			}
-			sprintf(stinfo, "%s", st_info[*value]);
-			In_set(stinfo , &select_item);	
-			free(stinfo);
 			break;
 		default:
 			printw("Error!\n");

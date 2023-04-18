@@ -15,7 +15,7 @@ bool station_login(char *PSK){
 		ST.lock = 0;
 	pthread_mutex_unlock(&ST.mutex);
 
-	//printf("ST Lock = %d\n" ,ST.lock);
+	printf("ST Lock_function = %d\n" ,ST.lock);
 
 	if(ST.lock)
 		return true;
@@ -23,20 +23,35 @@ bool station_login(char *PSK){
 		return false;
 }
 
-void *In_set(char *color , int *num ){
-	if(!ST.lock){
+void lock_reset(){
+	pthread_mutex_lock(&ST.mutex);
+	ST.lock = 0;
+	pthread_mutex_unlock(&ST.mutex);
+}
+
+void *In_set(const char *color , int *num ){
+	if(ST.lock){
 		pthread_mutex_lock(&ST.mutex);
 		strcpy(ST.in_color , color);
 		ST.in_number = *num;
 		pthread_mutex_unlock(&ST.mutex);
+		//printf("Lock Status_inset : %d \n", ST.lock);
+		//printf("Colo : %s\nStation IN : %s --> %d \n", color , ST.in_color, ST.in_number);
 	}
 	else{
-		printf("Access Denied!\nReason : Station is locked\n");
+		printf("Access Denied!\nReason : Station is locked\nLock Status_in set : %d\n",ST.lock);
 	}
 }
 
-void *Out_set(char *color , int *num ){
-	if(!ST.lock){
+char *In_Colo_get(){
+	return ST.in_color;
+}
+int *In_st_get(){
+	return &ST.in_number;
+}
+
+void *Out_set(const char *color , int *num ){
+	if(ST.lock){
 		pthread_mutex_lock(&ST.mutex);
 		strcpy(ST.out_color , color);
 		ST.out_number = *num;

@@ -48,6 +48,7 @@ void admin_menu()
 	char PSK[PSK_LEN + 1];
 	int choice = '\0';
 	
+	const char *starray[]={"BR" , "BL" , "G" , "Y" , "R"};
 	if(!get_psk(PSK))
 		exit(0);
 
@@ -83,8 +84,12 @@ void admin_menu()
 			
 			int selection = colo_selection();	
 			int st = st_selection(&selection);
-			printf("Select Info : %d  Line  %d Station\n", selection, st);
-			printf("Station IN : %s --> %d \n", ST.in_color, ST.in_number);
+			printf("Select Info : %s  Line  %d Station\n", starray[selection], st);
+			*In_set(starray[selection], &st);
+			/*
+			 * char *colo = In_Colo_get();
+			 *printf("Station IN : %s --> %d \n", colo, *In_st_get());
+			 */
 			//set_station_info();   need to implement (ask for PSK and call *station_login(*PSK))
 			break;
 		case 2:
@@ -99,4 +104,6 @@ void admin_menu()
 			exit(0);
 	}
 
+	lock_reset();
+	
 }
