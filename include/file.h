@@ -10,8 +10,9 @@ void fileprint(int *fileno){
 	bool flag = false;
 	char line[100];
 	char *field;
-	int field_count = 0;
-	sprintf(path,".data/%d.csv",*filno);
+	char *comma = ",";
+	int field_count = 0 , column_count = 0;
+	sprintf(path,".data/%d.csv",*fileno);
 	FILE *fp = fopen(path, "r");
 	if(fp != NULL){
 	//open success
@@ -22,18 +23,20 @@ void fileprint(int *fileno){
 	}
 	while(fgets(line , 100 , fp)){
 		if(field_count == 0){
-
-			field = strtok(line,',');
-			while(field){
-				printf("%s   ",field);
-				field = strtok(NULL, ',');
-			}
-		}else{
-			printf("%s \n",line);
+			column_count --;
 		}
-//				printf("---------------|");
-//			printf("---------------|");
-	
+		line[strcspn(line, "\n")] = '\0';
+			field = strtok(line,comma);
+			while(field){
+				printf("|%-12s",field);
+				field = strtok(NULL, comma);
+				column_count++;
+			}
+			printf("|\n ");
+			do{
+				printf("%-13s","------------");
+			}while(column_count--);
+			printf("\n");
 		field_count++;
 
 

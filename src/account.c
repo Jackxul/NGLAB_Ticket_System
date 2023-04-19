@@ -22,15 +22,20 @@ Acc *account_init(int fileno){
 		
 		FILE *fp = fopen(path, "a");
 		if(fp != NULL){
-			fprintf(fp, "%c,%d,%s,%d,%s,%d,%s,%d,%d\n",'I',fileno,account->name,account->wallet,account->station_in_color,account->station_in_number,account->station_out_color,account->station_out_number,account->lock);
+			fprintf(fp, "%c,%d,%s,%d,%s,%d,%s,%d,%d\n",
+					'I',
+					fileno,account->name,
+					account->wallet,
+					account->station_in_color,
+					account->station_in_number,
+					account->station_out_color,
+					account->station_out_number,
+					account->lock);
 			fclose(fp);
 		}else{
 			printf("Error: .txt open failed!\n");
 		}
 		flag = false;
-
-
-
 		printf("(Account init success!)\n");
 	}else{
 		printf("Error: Account init failed!\n");
@@ -49,9 +54,10 @@ void set_account_name(Acc *account,char *name){
 	strcpy(account->name, name);
 	pthread_mutex_unlock(&account->mutex);
 }
-void set_account_wallet(Acc *account,int value){
+void set_account_wallet(int *value){
+	Acc *account = malloc(sizeof(Acc)); //Still needs to call free()
 	pthread_mutex_lock(&account->mutex);
-	account->wallet = value;
+	account->wallet = *value;
 	pthread_mutex_unlock(&account->mutex);
 }
 void set_account_station_in_color(Acc *account,char *color){

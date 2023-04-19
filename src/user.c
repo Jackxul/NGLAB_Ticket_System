@@ -4,6 +4,7 @@
 #include "station.h"
 #include "account.h"
 #include "map.h"
+#include "file.h"
 void user_menu()
 {
 	char *test_in = In_Colo_get();
@@ -31,8 +32,8 @@ void user_menu()
 			//
 
 			fno = create_info_text();
-
 			*account_init(fno);
+			fileprint(&fno);
 			break;
 		case 2:
 			
@@ -43,6 +44,9 @@ void user_menu()
 			break;
 		case 3:
 			//add_value();
+			printf("Please enter your Account ID => ");
+			scanf("%d", &fno);
+			set_account_wallet(&fno);
 			break;
 		case 4:
 			//buy_one_way_ticket();

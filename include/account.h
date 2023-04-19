@@ -24,7 +24,7 @@ Acc *account_init(int fileno);
 /*	Account set 	*/
 void set_account_number(Acc *account,int value);
 void set_account_name(Acc *account,char *name);
-void set_account_wallet(Acc *account,int value);
+void set_account_wallet(int *value);
 /*	Account get 	*/
 int get_account_number(Acc *account);
 char *get_account_name(Acc *account);
