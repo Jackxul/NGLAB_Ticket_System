@@ -2,11 +2,12 @@
 //Jack_Xul
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
-
+#include <unistd.h>
 #include <string.h>
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 typedef struct{
 	pthread_mutex_t mutex;
     	int accountNumber;
@@ -33,4 +34,5 @@ int get_account_station_in_no(Acc *account);
 char *get_account_station_out_color(Acc *account);
 int get_account_station_out_no(Acc *account);
 
+void create_info_text();
 #endif /* ACCOUNT_H */

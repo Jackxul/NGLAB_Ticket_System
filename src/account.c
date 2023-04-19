@@ -4,7 +4,7 @@
 #include "account.h"
 /*	Account init function	*/
 Acc *account_init(){
-	Acc *account = malloc(sizeof(Acc));
+	Acc *account = malloc(sizeof(Acc)); //Still needs to call free()
 	if(account){
 		account->accountNumber = 0;
 		strcpy(account->name, "NULL");
@@ -15,10 +15,9 @@ Acc *account_init(){
 		account->station_out_number = -1;
 		pthread_mutex_init(&account->mutex , NULL);//IMPORTANT!!!
 		account->lock = 0;
-		printf("Account init success!\n");
+		printf("(Account init success!)\n");
 	}else{
 		printf("Error: Account init failed!\n");
-		exit(1);
 	}	
 	return account;
 }
@@ -109,8 +108,31 @@ int get_account_station_out_no(Acc *account){
 	pthread_mutex_unlock(&account->mutex);
 	return num;
 }
+void create_info_text(){
+	int fileno = 0;
+	char path[20];
+	bool flag = true;
+	while(flag){
+		sprintf(path, ".data/%d.txt", fileno);
+		if(access(path, F_OK) == 0){
+			//printf("Error: info.txt already exists!\n");
+			fileno++;
+			continue;
+		}else{
+			
+			//doen't exist
+			FILE *fp = fopen(path, "w");
+			if(fp != NULL){
+				fclose(fp);
+			}else{
+				printf("Error: .txt open failed!\n");
+			}
+			flag = false;
+		}
 
-
+	}
+	printf("Thanks for your purchase !\nYour Account ID is : %d  ", fileno);
+}
 
 void account(){
 

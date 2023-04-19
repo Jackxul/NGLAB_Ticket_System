@@ -25,8 +25,13 @@ void user_menu()
 	switch(choice){
 		case 1:
 			//buy_card();
+			//
+			//
+			//
+
+			create_info_text();
+
 			*account_init();
-			free(account_init());
 			break;
 		case 2:
 			
