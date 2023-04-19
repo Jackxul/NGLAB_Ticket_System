@@ -40,9 +40,6 @@ bool get_psk(char *password){
 	//printf("password is : %s", password);
 
 }
-	
-
-
 void admin_menu()
 {
 	char PSK[PSK_LEN + 1];
