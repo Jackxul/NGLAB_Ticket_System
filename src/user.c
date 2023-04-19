@@ -46,6 +46,7 @@ void user_menu()
 			//add_value();
 			printf("Please enter your Account ID => ");
 			scanf("%d", &fno);
+			//printf("Account Still remain : %d \n Input add up value => ");
 			set_account_wallet(&fno);
 			break;
 		case 4:
