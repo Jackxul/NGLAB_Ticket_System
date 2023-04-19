@@ -9,6 +9,7 @@ void user_menu()
 	char *test_in = In_Colo_get();
 	char *test_out = Out_Colo_get();
 	int choice = '\0';
+	int fno;
 	//const char *test[]={"BR" , "BL" , "G" , "Y" , "R"};
 	printf("|==================================|\n");
 	printf("|                                  |\n");
@@ -29,9 +30,9 @@ void user_menu()
 			//
 			//
 
-			create_info_text();
+			fno = create_info_text();
 
-			*account_init();
+			*account_init(fno);
 			break;
 		case 2:
 			

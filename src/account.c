@@ -3,7 +3,7 @@
 //private variables
 #include "account.h"
 /*	Account init function	*/
-Acc *account_init(){
+Acc *account_init(int fileno){
 	Acc *account = malloc(sizeof(Acc)); //Still needs to call free()
 	if(account){
 		account->accountNumber = 0;
@@ -15,6 +15,22 @@ Acc *account_init(){
 		account->station_out_number = -1;
 		pthread_mutex_init(&account->mutex , NULL);//IMPORTANT!!!
 		account->lock = 0;
+
+		char path[20];
+		bool flag = true;
+		sprintf(path, ".data/%d.csv", fileno);
+		
+		FILE *fp = fopen(path, "a");
+		if(fp != NULL){
+			fprintf(fp, "%c,%d,%s,%d,%s,%d,%s,%d,%d\n",'I',fileno,account->name,account->wallet,account->station_in_color,account->station_in_number,account->station_out_color,account->station_out_number,account->lock);
+			fclose(fp);
+		}else{
+			printf("Error: .txt open failed!\n");
+		}
+		flag = false;
+
+
+
 		printf("(Account init success!)\n");
 	}else{
 		printf("Error: Account init failed!\n");
@@ -108,12 +124,12 @@ int get_account_station_out_no(Acc *account){
 	pthread_mutex_unlock(&account->mutex);
 	return num;
 }
-void create_info_text(){
+int create_info_text(){
 	int fileno = 0;
 	char path[20];
 	bool flag = true;
 	while(flag){
-		sprintf(path, ".data/%d.txt", fileno);
+		sprintf(path, ".data/%d.csv", fileno);
 		if(access(path, F_OK) == 0){
 			//printf("Error: info.txt already exists!\n");
 			fileno++;
@@ -123,6 +139,7 @@ void create_info_text(){
 			//doen't exist
 			FILE *fp = fopen(path, "w");
 			if(fp != NULL){
+				fprintf(fp, "index,AccountID,AccountName,Wallet,In_Colo,In_no,Out_Colo,Out_no,Lock\n");
 				fclose(fp);
 			}else{
 				printf("Error: .txt open failed!\n");
@@ -132,6 +149,7 @@ void create_info_text(){
 
 	}
 	printf("Thanks for your purchase !\nYour Account ID is : %d  ", fileno);
+return fileno;
 }
 
 void account(){

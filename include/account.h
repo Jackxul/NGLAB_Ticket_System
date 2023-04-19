@@ -20,7 +20,7 @@ typedef struct{
 	int lock;//0:unlock 1:lock 
 } Acc;
 /*	Account init 	*/
-Acc *account_init();
+Acc *account_init(int fileno);
 /*	Account set 	*/
 void set_account_number(Acc *account,int value);
 void set_account_name(Acc *account,char *name);
@@ -34,5 +34,5 @@ int get_account_station_in_no(Acc *account);
 char *get_account_station_out_color(Acc *account);
 int get_account_station_out_no(Acc *account);
 
-void create_info_text();
+int create_info_text();
 #endif /* ACCOUNT_H */
