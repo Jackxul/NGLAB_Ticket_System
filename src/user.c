@@ -3,6 +3,7 @@
 #include "user.h"
 #include "station.h"
 #include "account.h"
+#include "map.h"
 void user_menu()
 {
 	char *test_in = In_Colo_get();
@@ -31,7 +32,8 @@ void user_menu()
 			
 			printf("Station IN : %s --> %d \n", test_in, *In_st_get());
 			printf("Station Out : %s --> %d \n", test_out, *Out_st_get());
-			//take_mrt();
+			int d = stat_cal(test_in, *In_st_get(),test_out, *Out_st_get());
+			printf("Distance : %d \n", d);
 			break;
 		case 3:
 			//add_value();

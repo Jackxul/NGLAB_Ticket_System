@@ -6,8 +6,8 @@
 #include <string.h>
 #include <stdlib.h>
 //declare the prototypes of functions
-float  stat_cal(char in_stat , int in_no , char out_stat , int out_no);
+int  stat_cal(char *in_stat , int in_no , char *out_stat , int out_no);
 
-
+int route_cal(int in_stat , int out_stat, int distance , int count);
 
 #endif /* MAP_H */ 
