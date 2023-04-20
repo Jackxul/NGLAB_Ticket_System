@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 //declare the prototypes of functions
 int  stat_cal(char *in_stat , int in_no , char *out_stat , int out_no);
 
