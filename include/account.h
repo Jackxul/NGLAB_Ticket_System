@@ -10,14 +10,14 @@
 #include <stdbool.h>
 typedef struct{
 	pthread_mutex_t mutex;
-    	int accountNumber;
-    	char name[30];
-    	int wallet;
-	char station_in_color[5];
-	int station_in_number;
-	char station_out_color[5];
-	int station_out_number;
-	int lock;//0:unlock 1:lock 
+    	int accountNumber;		//int
+    	char name[30];			//char[]
+    	int wallet;			//int
+	char station_in_color[5];	//char[]
+	int station_in_number;		//int
+	char station_out_color[5];	//char[]
+	int station_out_number;		//int
+	int lock;//0:unlock 1:lock	//int 
 } Acc;
 /*	Account init 	*/
 Acc *account_init(int fileno);
