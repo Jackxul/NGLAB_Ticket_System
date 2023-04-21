@@ -40,7 +40,7 @@ void user_menu()
 			printf("Station IN : %s --> %d \n", test_in, *In_st_get());
 			printf("Station Out : %s --> %d \n", test_out, *Out_st_get());
 			//int d = stat_cal(test_in, *In_st_get(),test_out, *Out_st_get());
-			printf("Distance : %d \n", d);
+			//printf("Distance : %d \n", d);
 			break;
 		case 3:
 			//add_value();
@@ -48,6 +48,8 @@ void user_menu()
 			scanf("%d", &fno);
 			//printf("Account Still remain : %d \n Input add up value => ");
 			set_account_wallet(&fno);
+			printf("Test\n");
+			itemprint(&fno , 7);
 			break;
 		case 4:
 			//buy_one_way_ticket();

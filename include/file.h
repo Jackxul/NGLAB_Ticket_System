@@ -5,6 +5,33 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+int create_info_text(){
+	int fileno = 0;
+	char path[20];
+	bool flag = true;
+	while(flag){
+		sprintf(path, ".data/%d.csv", fileno);
+		if(access(path, F_OK) == 0){
+			//printf("Error: info.txt already exists!\n");
+			fileno++;
+			continue;
+		}else{
+			
+			//doen't exist
+			FILE *fp = fopen(path, "w");
+			if(fp != NULL){
+				fprintf(fp, "index,AccountID,AccountName,Wallet,In_Colo,In_no,Out_Colo,Out_no,Lock\n");
+				fclose(fp);
+			}else{
+				printf("Error: .txt open failed!\n");
+			}
+			flag = false;
+		}
+
+	}
+	printf("Thanks for your purchase !\nYour Account ID is : %d  ", fileno);
+return fileno;
+}
 void fileprint(int *fileno){
 	char path[20];
 	char line[100];
@@ -15,14 +42,15 @@ void fileprint(int *fileno){
 	FILE *fp = fopen(path, "r");
 	if(fp != NULL){
 	//open success
-		flag = true;	
+		//prtintf("File Open Success\n");
 	}else{
 	//failed
 		printf("File Open Error\n");
 	}
 	while(fgets(line , 100 , fp)){
 		if(field_count == 0){
-			column_count --;
+	
+		column_count --;
 		}
 		line[strcspn(line, "\n")] = '\0';
 			field = strtok(line,comma);
@@ -44,7 +72,16 @@ void fileprint(int *fileno){
 	
 	fclose(fp);
 }
-
+//item rule
+//0 : index
+//1 : Account ID
+//2 : Account Name
+//3 : Wallet
+//4 : In_Colo
+//5 : In_no
+//6 : Out_Colo
+//7 : Out_no
+//8 : Lock
 int itemprint(int *fileno , int num){
 	char path[20];
 	char line[100];
@@ -54,13 +91,8 @@ int itemprint(int *fileno , int num){
 	long file_size;
 	sprintf(path,".data/%d.csv",*fileno);
 	FILE *fp = fopen(path, "r");
-	if(fp != NULL){
-	//open success
-		flag = true;	
-	}else{
-	//failed
+	if(fp == NULL)
 		printf("File Open Error\n");
-	}
 	fseek(fp, 0, SEEK_END); 
 	//file pointer
 	//offset
@@ -69,7 +101,14 @@ int itemprint(int *fileno , int num){
 	rewind(fp); // set the file pointer to the beginning of the file
 
 
-//	while(fgets(line , 100 , fp)){
+	while(fgets(line , 100 , fp)){
+		if(ftell(fp) == file_size){
+			break;
+		}
+	}
+	char *last = line;
+	printf("Last line\n%s",last);
+
 //		if(field_count == 0){
 //			column_count --;
 //		}
@@ -86,7 +125,6 @@ int itemprint(int *fileno , int num){
 //			}while(column_count--);
 //			printf("\n");
 //		field_count++;
-//	}
 }
 
 

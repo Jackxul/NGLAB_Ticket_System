@@ -34,5 +34,4 @@ int get_account_station_in_no(Acc *account);
 char *get_account_station_out_color(Acc *account);
 int get_account_station_out_no(Acc *account);
 
-int create_info_text();
 #endif /* ACCOUNT_H */
