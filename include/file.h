@@ -65,7 +65,6 @@ int itemprint(int *fileno , int num){
 	//file pointer
 	//offset
 	//position (SEEK_SET, SEEK_CUR, SEEK_END)
-	file_size = ftell(fp);
 	file_size = ftell(fp); // return the current position of the file pointer -> to determine the file size
 	rewind(fp); // set the file pointer to the beginning of the file
 
