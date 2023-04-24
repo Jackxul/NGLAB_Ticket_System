@@ -22,6 +22,7 @@
 //2 : G
 //3 : O
 //4 : R
+
 //1 for O11,R13
 //2 for G14,R11
 //3 for G15,O08
@@ -49,16 +50,12 @@ const int tran [12][13] = {
 	/*11*/{-1,-1,-1,-1,-1,-1,-1, 1, 1,-1,-1,-1, 1},
 	/*12*/{-1,-1,-1,-1,-1,-1,-1,-1,-1, 2,-1, 1,-1}
 };
+
 const int trans_BR[4][2] = {{9,405},{10,115},{11,216},{24,123}};
 const int trans_BL[5][2] = {{111,212},{112,410},{114,307},{115,10},{123,24}};
 const int trans_G[6][2] = {{209,305},{210,408},{212,111},{214,411},{215,308},{216,11}};
 const int trans_O[5][2] = {{305,209},{306,407},{307,114},{308,215},{311,413}};
 const int trans_R[6][2] = {{407,306},{408,210},{410,112},{411,214},{413,311},{405,9}};
-//const int trans_R[3][2] = {{405,9},{407,306},{413,311}};
-//const int trans_BR[1][2] = {{9,405}};
-//const int trans_O[2][2] = {{306,407},{311,413}};
-
-
 int  stat_cal(char *in_stat , int in_no , char *out_stat , int out_no){
 	int fee =0;
 	printf("in_stat = %c -> ",*in_stat);
@@ -67,38 +64,34 @@ int  stat_cal(char *in_stat , int in_no , char *out_stat , int out_no){
 	printf("%d\n",out_no);
 /* ALGO */
  	int in_num = 318;
-	int out_num = 2;
+	int out_num = 12;
 	int count_cal = 0;
 	int total_dis = 0;
-
 	fee = route_cal(in_num,out_num,total_dis,count_cal);
 		
 	return fee;
 }
 
-int test = 0;
 int route_cal(int in_stat , int out_stat, int distance , int count){
 	int in_color = in_stat/100;
 	int out_color = out_stat/100;
-	bool flag = true;			
-	//printf("in_color = %d\n",in_color);
-	//printf("count = %d\n",count);
+	bool flag = true;
+	int prv_dis = distance;
 	switch(in_color){
 		case 0 :
 			if(out_color == in_color){
-				printf("abs_dis = %d\n" , abs(in_stat - out_stat));
 				distance += abs(in_stat - out_stat);
-				test = abs(in_stat - out_stat);
 			}
 			else{
 				int min = 9999;
 				count++;
-				if(count > 2){
+				if(count > 3){
 					flag = false;
 					count --;
 				}
 				if(flag){
 					for(int i=0 ;i < sizeof(trans_BR)/sizeof(trans_BR[0]);i++){
+					    distance = prv_dis;
 						int trans_dis = abs(in_stat - trans_BR[i][0]);
 						distance += trans_dis;
 						distance = route_cal(trans_BR[i][1],out_stat,distance,count);
@@ -106,9 +99,6 @@ int route_cal(int in_stat , int out_stat, int distance , int count){
 						if(distance < min){
 							min = distance;
 						}
-						distance -= test;
-						distance -= trans_dis;
-
 					}
 				}
 				distance = min;
@@ -117,17 +107,17 @@ int route_cal(int in_stat , int out_stat, int distance , int count){
 		case 1 :
 			if(out_color == in_color){
 				distance += abs(in_stat - out_stat);
-				test = abs(in_stat - out_stat);
 			}
 			else{
 				int min = 9999;
 				count++;
-				if(count > 2){
+				if(count > 3){
 					flag = false;
 					count --;
 				}
 				if(flag){
 					for(int i=0 ;i < sizeof(trans_BL)/sizeof(trans_BL[0]);i++){
+					        distance = prv_dis;
 						int trans_dis = abs(in_stat - trans_BL[i][0]);
 						distance += trans_dis;
 						distance = route_cal(trans_BL[i][1],out_stat,distance,count);
@@ -135,27 +125,26 @@ int route_cal(int in_stat , int out_stat, int distance , int count){
 						if(distance < min){
 							min = distance;
 						}
-						distance -= test;
-						distance -= trans_dis;
 					}
 				}
 				distance = min;
+
 			}
 			break;
 		case 2 :
 			if(out_color == in_color){
 				distance += abs(in_stat - out_stat);
-				test = abs(in_stat - out_stat);
 			}
 			else{
 				int min = 9999;
 				count++;
-				if(count > 2){
+				if(count > 3){
 					flag = false;
 					count --;
 				}
 				if(flag){
 					for(int i=0 ;i < sizeof(trans_G)/sizeof(trans_G[0]);i++){
+					    distance = prv_dis;
 						int trans_dis = abs(in_stat - trans_G[i][0]);
 						distance += trans_dis;
 						distance = route_cal(trans_G[i][1],out_stat,distance,count);
@@ -163,8 +152,6 @@ int route_cal(int in_stat , int out_stat, int distance , int count){
 						if(distance < min){
 							min = distance;
 						}
-						distance -= test;
-						distance -= trans_dis;
 					}
 				}
 				distance = min;
@@ -174,27 +161,24 @@ int route_cal(int in_stat , int out_stat, int distance , int count){
 		case 3 :
 			if(out_color == in_color){
 				distance += abs(in_stat - out_stat);
-				test = abs(in_stat - out_stat);
 			}
 			else{
 				int min = 9999;
 				count++;
-				if(count > 2){
+				if(count > 3){
 					flag = false;
 					count --;
 				}
 				if(flag){
 					for(int i=0 ;i < sizeof(trans_O)/sizeof(trans_O[0]);i++){
+					    distance = prv_dis;
 						int trans_dis = abs(in_stat - trans_O[i][0]);
 						distance += trans_dis;
 						distance = route_cal(trans_O[i][1],out_stat,distance,count);
 						flag = true;
-						printf("dis = %d\n" , distance);
 						if(distance < min){
 							min = distance;
 						}
-						distance -= trans_dis;
-						distance -= test;
 					}
 				}
 				distance = min;
@@ -205,17 +189,17 @@ int route_cal(int in_stat , int out_stat, int distance , int count){
 		case 4 :
 			if(out_color == in_color){
 				distance += abs(in_stat - out_stat);
-				test = abs(in_stat - out_stat);
 			}
 			else{
 				int min = 9999;
 				count++;
-				if(count > 2){
+				if(count > 3){
 					flag = false;
 					count --;
 				}
 				if(flag){
 					for(int i=0 ;i < sizeof(trans_R)/sizeof(trans_R[0]);i++){
+					    distance = prv_dis;
 						int trans_dis = abs(in_stat - trans_R[i][0]);
 						distance += trans_dis;
 						distance = route_cal(trans_R[i][1],out_stat,distance,count);
@@ -224,8 +208,6 @@ int route_cal(int in_stat , int out_stat, int distance , int count){
 						if(distance < min){
 							min = distance;
 						}
-						distance -= test;
-						distance -= trans_dis;
 					}
 				}
 				distance = min;
