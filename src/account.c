@@ -130,33 +130,6 @@ int get_account_station_out_no(Acc *account){
 	pthread_mutex_unlock(&account->mutex);
 	return num;
 }
-int create_info_text(){
-	int fileno = 0;
-	char path[20];
-	bool flag = true;
-	while(flag){
-		sprintf(path, ".data/%d.csv", fileno);
-		if(access(path, F_OK) == 0){
-			//printf("Error: info.txt already exists!\n");
-			fileno++;
-			continue;
-		}else{
-			
-			//doen't exist
-			FILE *fp = fopen(path, "w");
-			if(fp != NULL){
-				fprintf(fp, "index,AccountID,AccountName,Wallet,In_Colo,In_no,Out_Colo,Out_no,Lock\n");
-				fclose(fp);
-			}else{
-				printf("Error: .txt open failed!\n");
-			}
-			flag = false;
-		}
-
-	}
-	printf("Thanks for your purchase !\nYour Account ID is : %d  ", fileno);
-return fileno;
-}
 
 void account(){
 
