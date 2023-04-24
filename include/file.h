@@ -82,7 +82,7 @@ void fileprint(int *fileno){
 //6 : Out_Colo
 //7 : Out_no
 //8 : Lock
-int itemprint(int *fileno , int num){
+char *itemprint(int *fileno , int num){
 	char path[20];
 	char line[100];
 	char *field;
@@ -107,24 +107,18 @@ int itemprint(int *fileno , int num){
 		}
 	}
 	char *last = line;
-	printf("Last line\n%s",last);
+	//printf("Last line\n%s",last);
+	fclose(fp);
+	//printf("\nNumbers = %d \n",num);
 
-//		if(field_count == 0){
-//			column_count --;
-//		}
-//		line[strcspn(line, "\n")] = '\0';
-//			field = strtok(line,comma);
-//			while(field){
-//				printf("|%-12s",field);
-//				field = strtok(NULL, comma);
-//				column_count++;
-//			}
-//			printf("|\n ");
-//			do{
-//				printf("%-13s","------------");
-//			}while(column_count--);
-//			printf("\n");
-//		field_count++;
+
+	field = strtok(last,comma);
+	while(field && num > 0){
+		num--;
+		field = strtok(NULL, comma);
+	}
+	printf("Field = %s\n",field);
+	return field;	
 }
 
 

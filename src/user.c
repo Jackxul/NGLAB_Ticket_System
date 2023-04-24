@@ -49,7 +49,10 @@ void user_menu()
 			//printf("Account Still remain : %d \n Input add up value => ");
 			set_account_wallet(&fno);
 			printf("Test\n");
-			itemprint(&fno , 7);
+			char *test = itemprint(&fno , 3);
+			//strcpy(test , *itemprint(&fno , 3));
+			printf("Account Wallet : %s\n",test);
+			//free(itemprint(&fno , 3));
 			break;
 		case 4:
 			//buy_one_way_ticket();
