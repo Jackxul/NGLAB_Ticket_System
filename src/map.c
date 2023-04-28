@@ -63,13 +63,36 @@ int  stat_cal(char *in_stat , int in_no , char *out_stat , int out_no){
 	printf("out_stat = %c -> ",*out_stat);
 	printf("%d\n",out_no);
 /* ALGO */
- 	int in_num = 318;
-	int out_num = 12;
+ 	int in_num = stat_trans(*in_stat, in_no);
+	int out_num = stat_trans(*out_stat, out_no);
 	int count_cal = 0;
 	int total_dis = 0;
 	fee = route_cal(in_num,out_num,total_dis,count_cal);
 		
 	return fee;
+}
+
+int stat_trans(char *stat , int num){
+	int stat_sum = num;
+	if (*stat == "BR"){
+		stat_sum += 0;
+	}
+	else if (*stat == "BL"){
+		stat_sum += 100;
+	}
+	else if (*stat == "G"){
+		stat_sum += 200;
+	}
+	else if (*stat == "O"){
+		stat_sum += 300;
+	}
+	else if (*stat == "R"){
+		stat_sum += 400;
+	}
+	else{
+		printf("Error : Wrong Station\n");
+	}
+	return stat_sum;
 }
 
 int route_cal(int in_stat , int out_stat, int distance , int count){

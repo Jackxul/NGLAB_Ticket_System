@@ -39,8 +39,8 @@ void user_menu()
 			
 			printf("Station IN : %s --> %d \n", test_in, *In_st_get());
 			printf("Station Out : %s --> %d \n", test_out, *Out_st_get());
-			//int d = stat_cal(test_in, *In_st_get(),test_out, *Out_st_get());
-			//printf("Distance : %d \n", d);
+			int d = stat_cal(test_in, *In_st_get(),test_out, *Out_st_get());
+			printf("Distance : %d \n", d);
 			break;
 		case 3:
 			//add_value();
