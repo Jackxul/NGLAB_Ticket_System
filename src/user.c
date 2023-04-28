@@ -48,10 +48,12 @@ void user_menu()
 			scanf("%d", &fno);
 			//printf("Account Still remain : %d \n Input add up value => ");
 			set_account_wallet(&fno);
-			printf("Test\n");
-			char *test = itemprint(&fno , 3);
-			//strcpy(test , *itemprint(&fno , 3));
-			printf("Account Wallet : %s\n",test);
+			char *test = malloc(sizeof(char)*10);
+			strncpy(test , itemprint(&fno , 3), 9);
+			printf("Account Wallet : %s\n", test);
+			test[9]='\0';
+
+			free(test);
 			//free(itemprint(&fno , 3));
 			break;
 		case 4:

@@ -82,10 +82,10 @@ void fileprint(int *fileno){
 //6 : Out_Colo
 //7 : Out_no
 //8 : Lock
-int itemprint(int *fileno , int num){
+char *itemprint(int *fileno , int num){
 	char path[20];
 	char line[100];
-	char *field;
+	char *field = "";
 	char *comma = ",";
 	int column_count = 0;
 	long file_size;
@@ -104,26 +104,6 @@ int itemprint(int *fileno , int num){
 	file_size = ftell(fp);
 	file_size = ftell(fp); // return the current position of the file pointer -> to determine the file size
 	rewind(fp); // set the file pointer to the beginning of the file
-
-
-//	while(fgets(line , 100 , fp)){
-//		if(field_count == 0){
-//			column_count --;
-//		}
-//		line[strcspn(line, "\n")] = '\0';
-//			field = strtok(line,comma);
-//			while(field){
-//				printf("|%-12s",field);
-//				field = strtok(NULL, comma);
-//				column_count++;
-//			}
-//			printf("|\n ");
-//			do{
-//				printf("%-13s","------------");
-//			}while(column_count--);
-//			printf("\n");
-//		field_count++;
-//	}
 
 	while(fgets(line , 100 , fp)){
 		if(ftell(fp) == file_size){
