@@ -82,24 +82,6 @@ void fileprint(int *fileno){
 //6 : Out_Colo
 //7 : Out_no
 //8 : Lock
-char *itemprint(int *fileno , int num){
-	char path[20];
-	char line[100];
-	char *field;
-	char *comma = ",";
-	int column_count = 0;
-	long file_size;
-	sprintf(path,".data/%d.csv",*fileno);
-	FILE *fp = fopen(path, "r");
-	if(fp == NULL)
-		printf("File Open Error\n");
-	fseek(fp, 0, SEEK_END); 
-	//file pointer
-	//offset
-	//position (SEEK_SET, SEEK_CUR, SEEK_END)
-	file_size = ftell(fp); // return the current position of the file pointer -> to determine the file size
-	rewind(fp); // set the file pointer to the beginning of the file
-
 int itemprint(int *fileno , int num){
 	char path[20];
 	char line[100];
@@ -142,7 +124,6 @@ int itemprint(int *fileno , int num){
 //			printf("\n");
 //		field_count++;
 //	}
-}
 
 	while(fgets(line , 100 , fp)){
 		if(ftell(fp) == file_size){
