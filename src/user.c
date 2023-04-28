@@ -52,7 +52,7 @@ void user_menu()
 			strncpy(test , itemprint(&fno , 3), 9);
 			printf("Account Wallet : %s\n", test);
 			test[9]='\0';
-
+			
 			free(test);
 			//free(itemprint(&fno , 3));
 			break;

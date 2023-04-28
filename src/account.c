@@ -4,7 +4,7 @@
 #include "account.h"
 /*	Account init function	*/
 Acc *account_init(int fileno){
-	Acc *account = malloc(sizeof(Acc)); //Still needs to call free()
+	Acc *account = malloc(sizeof(Acc)); //Still needs to call free()NOT DONE YET
 	if(account){
 		account->accountNumber = 0;
 		strcpy(account->name, "NULL");
@@ -24,7 +24,8 @@ Acc *account_init(int fileno){
 		if(fp != NULL){
 			fprintf(fp, "%c,%d,%s,%d,%s,%d,%s,%d,%d\n",
 					'I',
-					fileno,account->name,
+					fileno,
+					account->name,
 					account->wallet,
 					account->station_in_color,
 					account->station_in_number,

@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <pthread.h>
+#include "account.h"
 
 int create_info_text(){
 	int fileno = 0;
@@ -31,6 +33,45 @@ int create_info_text(){
 	}
 	printf("Thanks for your purchase !\nYour Account ID is : %d  ", fileno);
 return fileno;
+}
+
+void filewrite(int fileno, char type, int wallet, char *incolo, int inno, char *outcolo, int outno, int lock){   // replacement function (set default to no replace)
+	Acc *account = (Acc *)malloc(sizeof(Acc));
+
+
+	account->accountNumber = fileno;
+	strncpy(account->name ,"NULL" , 5);
+	account->wallet = wallet;
+	strncpy(account->station_in_color, incolo, 3);
+	account->station_in_number = inno;
+	strncpy(account->station_out_color, outcolo, 3);
+	account->station_out_number = outno;
+	account->lock = lock;
+
+	
+	char path[20];
+	sprintf(path, ".data/%d.csv", fileno);
+	FILE *fp = fopen(path, "a");
+	if(fp != NULL){
+		fprintf(fp, "%c,%d,%s,%d,%s,%d,%s,%d,%d\n",
+				'I',
+				fileno,
+				account->name,
+				account->wallet,
+				account->station_in_color,
+				account->station_in_number,
+				account->station_out_color,
+				account->station_out_number,
+				account->lock);
+		fclose(fp);
+	}else{
+		printf("Error: .txt open failed!\n");
+	}
+
+	
+
+
+	free(account);
 }
 void fileprint(int *fileno){
 	char path[20];
@@ -121,7 +162,7 @@ char *itemprint(int *fileno , int num){
 		num--;
 		field = strtok(NULL, comma);
 	}
-	printf("Field = %s\n",field);
+	//printf("Field = %s\n",field);
 	return field;	
 }
 
