@@ -35,8 +35,41 @@ int create_info_text(){
 return fileno;
 }
 
-void filewrite(int fileno, char type, int wallet, char *incolo, int inno, char *outcolo, int outno, int lock){   // replacement function (set default to no replace)
+void filewrite(int fileno, char type, int wallet, char *incolo, int inno, char *outcolo, int outno){   // replacement function (set default to no replace)
 	Acc *account = (Acc *)malloc(sizeof(Acc));
+	
+
+
+	account->accountNumber = fileno;
+//	strncpy(account->name ,"NULL" , 5);
+	if(!wallet)
+		printf("1");//do_nothing	
+	else
+		account->wallet = wallet;	
+	
+	if(strncmp(incolo, "NULL", 4) == 0)
+		printf("2");//do_nothing	
+	else
+		strncpy(account->station_in_color, incolo, 3);
+	
+	if(!inno)
+		printf("3");//do_nothing	
+	else
+		account->station_in_number = inno;
+	if(strncmp(outcolo, "NULL", 4) == 0)
+		printf("4");//do_nothing	
+	else
+		strncpy(account->station_out_color, outcolo, 3);
+	if(!outno)
+		printf("5");//do_nothing	
+	else
+		account->station_out_number = outno;
+	if(account->lock == 1 && account->wallet < 0)
+		printf("6");//do_nothing	
+	else
+		account->lock = 0;
+
+
 
 
 	account->accountNumber = fileno;
@@ -46,7 +79,7 @@ void filewrite(int fileno, char type, int wallet, char *incolo, int inno, char *
 	account->station_in_number = inno;
 	strncpy(account->station_out_color, outcolo, 3);
 	account->station_out_number = outno;
-	account->lock = lock;
+	//account->lock = lock;
 
 	
 	char path[20];
